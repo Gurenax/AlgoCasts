@@ -12,7 +12,21 @@ function palindrome(str) {
   return str === reverse(str)
 }
 
-// Reverse a string
-const reverse = str => str.split('').reduce((rev, char) => char + rev, '')
+// Reverse a string - Using array reverse()
+const reverse = str => str.split('').reverse().join('')
 
-module.exports = palindrome;
+// Alternate solution 1 - Using array reduce()
+// const reverse = str => str.split('').reduce((rev, char) => char + rev, '')
+
+// Alternate solution 2 - Using array every()
+// function palindrome(str) {
+//   return str.split('').every((char, i) => {
+//     return char === str[str.length - i - 1]
+//   })
+// }
+
+// Alternate solution 2 (clean) - Using array every()
+// const palindrome = str =>
+//   str.split('').every((char, i) => char === str[str.length - i - 1])
+
+module.exports = palindrome
