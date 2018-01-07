@@ -7,10 +7,10 @@
 //   reverse('Greetings!') === '!sgniteerG'
 
 function reverse(str) {
-  // Convert the string to array
-  // Reverse the array
-  // Convert array back to string
-  return str.split('').reverse().join('')
+  return str
+    .split('') // Convert the string to array
+    .reverse() // Reverse the array
+    .join('') // Convert array back to string
 }
 
-module.exports = reverse;
+module.exports = reverse
