@@ -7,7 +7,7 @@
 
 function maxChar(str) {
   // Convert String to Object with count for each character
-  const chars = convertStringToObjectWithCharCount(str)
+  const chars = convertStringToCharMap(str)
   
   // Find the character with the biggest value in the object
   let mostCommonChar = ''
@@ -25,7 +25,7 @@ function maxChar(str) {
 }
 
 // Convert String to Object with count for each character
-const convertStringToObjectWithCharCount = (str) => {
+const convertStringToCharMap = (str) => {
   const chars = {}
   for(let char of str) {
     // Using Ternary
