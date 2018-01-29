@@ -12,8 +12,8 @@ function anagrams(stringA, stringB) {
   // Function which creates a character map from a string
   const charMapper = str => {
     return str.split('').reduce((charMap, char) => {
-      if(!charMap[char]) charMap[char] = 1
-      else charMap[char]++
+      // Increment key value by 1. However, if undefined initialise as 1
+      charMap[char] = charMap[char] + 1 || 1
       return charMap
     }, {})
   }
@@ -28,20 +28,19 @@ function anagrams(stringA, stringB) {
   const charMapB = charMapper(alphanumericLowercase(stringB))
 
   // If length of two character maps are equal
-  if(Object.keys(charMapA).length === Object.keys(charMapB).length) {
-    // For each key in char map A
-    for(let key in charMapA) {
-      // Check if key value is similar between char map A and B
-      if(charMapA[key] !== charMapB[key]) {
-        // If not, return false immediately
-        return false
-      }
-    }
-    // Return true if no inequality is found
-    return true
+  if(Object.keys(charMapA).length !== Object.keys(charMapB).length) {
+    return false
   }
-  // Return false when two character maps are not equal
-  return false
+  // For each key in char map A
+  for(let key in charMapA) {
+    // Check if key value is similar between char map A and B
+    if(charMapA[key] !== charMapB[key]) {
+      // If not, return false immediately
+      return false
+    }
+  }
+  // Return true if no condition is violated
+  return true
 }
 
 module.exports = anagrams;
