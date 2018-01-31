@@ -22,6 +22,24 @@ function capitalize(str) {
 
 module.exports = capitalize;
 
+// Alternate solution
+// function capitalize(str) {
+//   // Initialise result with first characetr of str capitalized
+//   const result = [str.charAt(0).toUpperCase()]
+//   // For every character in str
+//   for(let i=1; i<str.length; i++) {
+//     // If the last character is a space
+//     if(str[i-1] === ' ') {
+//       result.push(str[i].toUpperCase())
+//     }
+//     else {
+//       result.push(str[i])
+//     }
+//   }
+//   // Join the characters back together
+//   return result.join('')
+// }
+
 // Original solution
 // function capitalize(str) {
 //   // Array of capitalized words
