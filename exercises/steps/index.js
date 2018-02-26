@@ -19,14 +19,13 @@
 
 // Original solution
 // const steps = n => {
-//   for(let row=0; row<n; row++) {
+//   for (let row = 0; row < n; row++) {
 //     let stair = ''
 
-//     for(let column=0; column<n; column++) {
-//       if (column<=row) {
+//     for (let column = 0; column < n; column++) {
+//       if (column <= row) {
 //         stair += '#'
-//       }
-//       else {
+//       } else {
 //         stair += ' '
 //       }
 //     }
@@ -38,21 +37,23 @@
 // Recursive solution
 // const steps = (n, row = 0, stair = '') => {
 //   // Base case
-//   if(n===row) {
+//   if (n === row) {
 //     return
 //   }
 
 //   // End of the row
-//   if(n === stair.length) {
+//   if (n === stair.length) {
 //     console.log(stair) // Print row
 //     steps(n, row + 1) // Go to next row, resets the stair
 //     return
 //   }
 
 //   // Columns
-//   if(stair.length <= row) { // Every column before value of row
+//   if (stair.length <= row) {
+//     // Every column before value of row
 //     stair += '#'
-//   } else { // Every column after value of row
+//   } else {
+//     // Every column after value of row
 //     stair += ' '
 //   }
 
@@ -61,21 +62,26 @@
 // }
 
 // Refactored recursive solution
-const steps = (n, row=0, stair='') => {
+const steps = (n, row = 0, stair = '') => {
   // Base case
-  if(n===row) return
+  if (n === row) return
 
   // At the end of every row, Print stair and proceed to next row
-  if(n===stair.length) { // n will never change, but stair will increment its size for every row
-    console.log(stair) // Print row
-    return steps(n, row + 1) // Go to next row, resets the stair. Not necessarily returning anything
+  if (n === stair.length) {
+    // n will never change, but stair will increment its size for every row
+    // Print row
+    console.log(stair)
+    // Go to next row, resets the stair. Not necessarily returning anything
+    return steps(n, row + 1)
   }
 
   // Columns
-  const add = stair.length <= row ? '#' : ' ' // Add pound for every column before value of row, otherwise add space
+  // Add pound for every column before value of row, otherwise add space
+  const add = stair.length <= row ? '#' : ' '
 
   // Next recursion
-  steps(n, row, stair + add) // Go to next column. Row doesn't increment. Stairs will have a new value.
+  // Go to next column. Row doesn't increment. Stairs will have a new value.
+  steps(n, row, stair + add)
 }
 
 module.exports = steps
